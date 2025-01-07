@@ -6,15 +6,15 @@
 '''
 Here is a sample resignation letter:
 
-[Your Name]
-[Your Address]
-[City, State ZIP Code]
+[Your Name]<br>
+[Your Address]<br>
+[City, State ZIP Code]<br>
 [Date]
 
-[Recipient's Name]
-[Recipient's Title]
-[Company Name]
-[Company Address]
+[Recipient's Name]<br>
+[Recipient's Title]<br>
+[Company Name]<br>
+[Company Address]<br>
 [City, State ZIP Code]
 
 Dear [Recipient's Name],
@@ -29,7 +29,7 @@ Thank you again for the opportunity to work at [Company Name]. I wish the compan
 
 Sincerely,
 
-[Your Signature]
+[Your Signature]<br>
 [Your Name]
 
 Please note that this is just a sample, and you should customize it to fit your specific situation. Some things to consider:
