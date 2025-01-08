@@ -1,29 +1,75 @@
-Here is an example of a job application email:
+Here is an example of code documentation in Python:
 
-Subject: Application for [Job Title] Position at [Company Name]
+```python
+def calculate_area(length, width):
+    """
+    Calculates the area of a rectangle.
 
-Dear [Hiring Manager's Name],
+    Args:
+        length (float): The length of the rectangle.
+        width (float): The width of the rectangle.
 
-I am writing to express my enthusiastic interest in the [Job Title] position currently available at [Company Name]. As a highly motivated and dedicated professional, I am confident that I would be an excellent fit for this role and contribute significantly to your team.
+    Returns:
+        float: The area of the rectangle.
 
-With [Number of Years] years of experience in [Industry/Field], I possess a deep understanding of [Key Skills or Areas of Expertise] that align with the requirements of this position. My most recent position at [Current/Previous Company] has provided me with extensive knowledge of [Relevant Software, Tools, or Technologies], which I am eager to apply in a new and challenging role.
+    Raises:
+        ValueError: If either length or width is negative.
 
-I am particularly drawn to [Company Name] because of its [Reason for Interest in Company]. As someone who is passionate about [Industry/Field], I believe that my values and work style would be a great match for your organization. I am impressed by the company's commitment to [Aspect of Company's Mission or Values] and am excited about the opportunity to contribute to this mission.
+    Example:
+        >>> calculate_area(5, 3)
+        15.0
+    """
 
-I have attached my resume, which provides more details about my qualifications and experience. I would welcome the chance to discuss how my skills and experience align with the requirements of this position and explore the possibility of joining your team.
+def greet(name):
+    """
+    Prints out a personalized greeting message.
 
-Thank you for considering my application. I look forward to hearing from you soon.
+    Args:
+        name (str): The person's name to be greeted.
 
-Sincerely,
+    Returns:
+        None
 
-[Your Name]
+    Raises:
+        TypeError: If the input is not a string.
 
-[Your Contact Information (Email Address, Phone Number)]
+    Example:
+        >>> greet("John")
+        'Hello John!'
+    """
 
-This is just an example, please make sure to:
+def find_max_value(numbers):
+    """
+    Finds the maximum value in a list of numbers.
 
-- Customize the email for each job and company
-- Proofread multiple times for grammar and spelling errors
-- Use a professional tone and language
-- Include all relevant information from your resume
-- Show enthusiasm and interest in the company and position
+    Args:
+        numbers (list): A list of numeric values.
+
+    Returns:
+        float: The maximum value in the list.
+
+    Raises:
+        ValueError: If the input list is empty.
+
+    Example:
+        >>> find_max_value([3, 5, 1, 9])
+        9
+    """
+
+if __name__ == "__main__":
+    # Test the functions
+    print(calculate_area(5, 3))  # Output: 15.0
+    greet("Jane")  # Output: 'Hello Jane!'
+    numbers = [3, 5, 1, 9]
+    print(find_max_value(numbers))  # Output: 9
+```
+
+This documentation includes the following information:
+
+- A brief description of what each function does.
+- The input parameters and their types, with a description of what each parameter represents.
+- The return value and its type, with an example usage.
+- Any exceptions raised by the function, along with a description of what they represent.
+- An example usage of each function.
+
+Note: You can also use other documentation tools like docstrings in Python.

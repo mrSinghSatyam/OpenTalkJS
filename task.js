@@ -1,156 +1,77 @@
-import fs from 'fs';
-import  ollama  from 'ollama';
-let category = process.argv[2];
-let num = Math.floor(Math.random()*3+1);
-let q; 
-console.log(category)
+import ollama from "ollama";
+import fs from "fs";
+let input = process.argv[2];
+let q;
+let ans;
+let n = Math.floor(Math.random() * 3 + 1);
 
-
-async function ask_llm(q) {
-    const response = await ollama.chat({
-        model: "llama3.2:3b",
-        messages: [{ role: "user", content: q }],
-    });
-    let a = response.message.content;
-    fs.writeFile(`Answers.txt`,a,(err)=>{
-        if(err){
-            throw err;
-        }
-    });
-    console.log(`THE QUESTION IS: ${q}`)
+async function To_llm_ques(q) {
+  const response = await ollama.chat({
+    model: "llama3.2:3b",
+    messages: [{ role: "user", content: q }],
+  });
+  ans = response.message.content;
+  fs.writeFileSync(`Answers.txt`, ans, (err) => {
+    if (err) {
+      throw err;
+    }
+  });
 }
+//random number base pr case chooce krega
+switch (input) {
+  case "Professional_Writing":
+    q = `./Category/c1/q${n}.txt`;
+    To_llm_ques(
+      fs.readFileSync(q, "utf-8", (err) => {
+        if (err) {
+          throw err;
+        }
+      })
+    );
 
-switch(category){
-    case "ProfessionalWriting":
-        if(num == 1){
-            q = `./category/c1/q1.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }));
+    break;
+  case "Creative_Writing":
+    q = `./Category/c2/q${n}.txt`;
+    To_llm_ques(
+      fs.readFileSync(q, "utf-8", (err) => {
+        if (err) {
+          throw err;
         }
-        else if(num == 2){
-            q = `./category/c1/q2.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
+      })
+    );
+
+    break;
+  case "Technical_Content":
+    q = `./Category/c3/q${n}.txt`;
+    To_llm_ques(
+      fs.readFileSync(q, "utf-8", (err) => {
+        if (err) {
+          throw err;
         }
-        else if(num == 3){
-            q = `./category/c1/q3.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
+      })
+    );
+
+    break;
+  case "Academic_Writing":
+    q = `./Category/c4/q${n}.txt`;
+    To_llm(
+      fs.readFileSync(q, "utf-8", (err) => {
+        if (err) {
+          throw err;
         }
-        break;
-    case "CreativeWriting":
-        if(num == 1){
-            q = `./category/c2/q1.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
+      })
+    );
+
+    break;
+  case "Marketing_Content":
+    q = `./Category/c5/q${n}.txt`;
+    To_llm_ques(
+      fs.readFileSync(q, "utf-8", (err) => {
+        if (err) {
+          throw err;
         }
-        else if(num == 2){
-            q = `./category/c2/q2.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        else if(num == 3){
-            q = `./category/c2/q3.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        break;
-    case "TechnicalContent":
-        if(num == 1){
-            q = `./category/c3/q1.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        else if(num == 2){
-            q = `./category/c3/q2.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        else if(num == 3){
-            q = `./category/c3/q3.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        break;
-    case "AcademicWriting":
-        if(num == 1){
-            q = `./category/c4/q1.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        else if(num == 2){
-            q = `./category/c4/q2.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        else if(num == 3){
-            q = `./category/c4/q3.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        break;
-    case "MarketingContent":
-        if(num == 1){
-            q = `./category/c5/q1.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        else if(num == 2){
-            q = `./category/c5/q2.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        else if(num == 3){
-            q = `./category/c5/q3.txt`;
-            ask_llm(fs.readFileSync(q , 'utf8',(err)=>{
-                if(err){
-                    throw err;
-                }
-            }))
-        }
-        break;
-    default:
-        console.log("Invalid category");
+      })
+    );
+
+    break;
 }
