@@ -1,0 +1,4 @@
+Technical Content:
+Q1. Write code documentation
+Q2. Create API documentation
+Q3. Write a bug report
